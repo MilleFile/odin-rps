@@ -44,9 +44,7 @@ function playGame(roundcount=5) {
 
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === computerChoice) {
-            console.log("It's a draw! Both players get a point!");
-            computerScore += 1;
-            humanScore += 1;
+            console.log("It's a draw! No points!");
         }
         else if (humanChoice == "rock" && computerChoice == "scissors") {
             console.log("The player wins! Rock beats scissors.");
@@ -82,9 +80,12 @@ function playGame(roundcount=5) {
     }
 
     if (humanScore > computerScore) {
-        console.log("The player clinches the win in the BO5!");
+        console.log("The player clinches the win!");
+    }
+    else if (humanScore < computerScore) {
+        console.log("The computer snags the win!");
     }
     else {
-        console.log("The computer snags the win from the BO5!");
+        console.log("The game resulted in a tie!");
     }
 }
