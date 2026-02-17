@@ -17,6 +17,12 @@ function getComputerChoice() {
 const resultDiv = document.createElement("div");
 const scoreDiv = document.createElement("div");
 
+function cleanGame() {
+    const buttonClean = document.querySelectorAll('button');
+
+    buttonClean.forEach(element => {element.remove();});
+}
+
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         resultDiv.textContent = "It's a draw! No points!";
@@ -46,29 +52,25 @@ function playRound(humanChoice, computerChoice) {
         computerScore += 1;
     }
     scoreDiv.textContent = `Player: ${humanScore}   Computer: ${computerScore}`;
+
+    if (humanScore === 5) {
+        resultDiv.textContent = "The player clinches the win!";
+        cleanGame();
+    }
+    else if (computerScore == 5) {
+        resultDiv.textContent = "The computer snags the win!";
+        cleanGame();
+    }
 }
 
-    // for (i=0;i<roundcount;i++) {
-    //     humanSelect = getHumanChoice();
-    //     computerSelect = getComputerChoice();
-    //     playRound(humanSelect, computerSelect);
-    //     console.log("Current Score: Player-" + humanScore + " Computer-" + computerScore);
-    // }
 
-    // if (humanScore > computerScore) {
-    //     console.log("The player clinches the win!");
-    // }
-    // else if (humanScore < computerScore) {
-    //     console.log("The computer snags the win!");
-    // }
-    // else {
-    //     console.log("The game resulted in a tie!");
-    // }
+   
 
 const rockButton = document.createElement("button");
 const scissorsButton = document.createElement("button");
 const paperButton = document.createElement('button');
 
+resultDiv.textContent = "Make your choice.";
 scoreDiv.textContent = `Player: ${humanScore}   Computer: ${computerScore}`
 rockButton.textContent = "Go with rock.";
 scissorsButton.textContent = "Go with scissors.";
