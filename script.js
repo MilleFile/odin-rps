@@ -63,9 +63,6 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-
-   
-
 const rockButton = document.createElement("button");
 const scissorsButton = document.createElement("button");
 const paperButton = document.createElement('button');
